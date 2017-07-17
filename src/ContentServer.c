@@ -147,10 +147,8 @@ int main(int argc, char* argv[])
 	
 	
 			// Sending file data
-			while ((bytes = fread(buf, 1, sizeof(buf), fd)) > 0)
-				{					
+			while ((bytes = fread(buf, 1, sizeof(buf), fd)) > 0)				
 				send(client_socket, buf, bytes, 0);
-				}
 				
 			fclose(fd);			
 			}

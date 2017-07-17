@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -128,11 +127,6 @@ int main(int argc, char* argv[])
 		exit(6);
 		}
 
-		
-	if (!strcmp(buf_initiator, "EXIT"))
-		{
-		break;	
-		}
 					
 	//	Initialize mutexes and condition variables
 	pthread_mutex_init(&mutex_queue, NULL);
@@ -213,9 +207,7 @@ int main(int argc, char* argv[])
 		
 		// Check if directory already exists
 		if (stat(content_dir, &sb) == 0 && S_ISDIR(sb.st_mode))
-			{
 			continue;
-			}
 		
 		// Create directory for each Content Server
 		if (mkdir(content_dir, 0700) == -1) 
@@ -229,9 +221,7 @@ int main(int argc, char* argv[])
 	pthread_mutex_lock(&mutex_glb);
 
 	while(number_managers != numDevicesDone)
-		{
 		pthread_cond_wait(&allDone, &mutex_glb);	
-		}
 	
 	pthread_mutex_unlock(&mutex_glb);
 	
@@ -269,15 +259,11 @@ int main(int argc, char* argv[])
 	for (i = 0 ; i < number_managers ; i++)
 		{
 		for (j = 0 ; j < 4 ; j++)	
-			{
 			free(content_server_info[i][j]);	
-			}
 		}
 	
 	for (i = 0 ; i < number_managers ; i++)
-		{
-		free(content_server_info[i]);
-		}	
+		free(content_server_info[i]);	
 		
 	free(content_server_info);
 	
@@ -294,10 +280,7 @@ int main(int argc, char* argv[])
 		
 	// Free shared buffer's memory
 	for (i = 0 ; i < BUFFER_SIZE ; i++)
-		{
-		free(shared_queue->buffer[i]);
-		}
-	
+		free(shared_queue->buffer[i]);	
 	free(shared_queue->buffer);	
 	free(shared_queue);
 		

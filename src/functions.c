@@ -65,18 +65,15 @@ void list_dir(char *path, char *structure)
 	struct dirent *entry; 
    
 	if((dir = opendir(path)) == NULL) 
-		{
 		return; // if was not able return	
-		}
+
 		
 	while ((entry = readdir(dir)) != NULL) 
 		{
 		sprintf(d_path, "%s/%s", path, entry->d_name);	
 			
 		if(entry-> d_type != DT_DIR) 
-			{
 			sprintf(structure, "%s%s:f,", structure, d_path);
-			}
 		else if(strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) 
 			{			
 			sprintf(structure, "%s%s:d,", structure, d_path);
