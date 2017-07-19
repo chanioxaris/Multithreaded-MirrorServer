@@ -1,5 +1,7 @@
 ## Overview
 
+![structure](https://github.com/chanioxaris/Multithreaded-MirrorServer/blob/master/img/structure.png)
+
 ## Compile
 
 `./makefile`
