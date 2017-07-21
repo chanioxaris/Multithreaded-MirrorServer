@@ -20,4 +20,4 @@
 
 `./MirrorServer -p [port] -m [directory to save files] -w [number of workers threads]`
 
-`./MirrorInitiator -m [name or addr of MirrorServer] -p [port of MirrorServer] -s [info for files to transfer]`
+`./MirrorInitiator -m [name of MirrorServer] -p [port of MirrorServer] -s [info for files to transfer]`
