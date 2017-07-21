@@ -14,10 +14,10 @@ The below image describes the operation of Mirror Server.
 ## Multithreading
 
 ### Mirror threads
-
+Their job is to connect to each Content server requested, send a "LIST" command and put the information of the files or directories need to be transfered to the shared queue. The number of Mirror threads created are the same as the requested Content servers (each thread corresponds to a Content Server).
 
 ### Worker threads
-
+Their job is to read from the shared buffer and start transferring the file or directory from a specific Content server to the Mirror server under a specific folder. The number of Mirror threads is determided by the user, using the command line arguments (-w). Their operation continues until there is no file or directory left to transfer.
 
 ### Shared Queue
 A shared [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is used among Mirror and Worker threads to send information, about the files or directories that is about to be transfered. The access to the queue is protected and synchronized with the use of mutexes and condition variables to prevent [busy waiting](https://en.wikipedia.org/wiki/Busy_waiting).
