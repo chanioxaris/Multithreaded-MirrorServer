@@ -13,11 +13,14 @@ The below image describes the operation of Mirror Server.
 
 ## Multithreading
 
-### Shared Queue
-
 ### Mirror threads
 
+
 ### Worker threads
+
+
+### Shared Queue
+A shared [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is used among Mirror and Worker threads to send information, about the files or directories that is about to be transfered. The access to the queue is protected and synchronized with the use of mutexes and condition variables to prevent [busy waiting](https://en.wikipedia.org/wiki/Busy_waiting).
 
 ## Compile
 
