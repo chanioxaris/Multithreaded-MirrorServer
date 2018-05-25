@@ -5,15 +5,13 @@
 #define BUFFER_STR_LEN 128
 
 
-typedef struct Queue
-	{
+typedef struct Queue {
 	int elements;
 	int front;
 	int rear;
 	char **buffer;
-	}Queue;
+}Queue;
 
-	
 extern Queue *shared_queue;
 
 Queue *queue_init();
