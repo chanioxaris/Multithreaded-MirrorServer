@@ -9,7 +9,7 @@ This is an implementation of a Mirror Server using [multithreading](https://en.w
 <br />
 The below image describes the operation of Mirror Server.
 
-![structure](https://github.com/chanioxaris/Multithreaded-MirrorServer/blob/master/img/structure.png)
+![structure](https://github.com/chanioxaris/multithreaded-mirror-server/blob/master/img/structure.png)
 
 ## Multithreading
 
